@@ -2,7 +2,7 @@
 
 This library is based on the [Transformers](https://github.com/huggingface/transformers) library by HuggingFace. Using this library, you can quickly extract text representations from Transformer models. Only two lines of code are needed to initialize the required model and extract the text representations from it.
 
-#Table of contents
+# Table of contents
 
 * [Installation](#installation)
 	* [With `pip`](#with-pip)
