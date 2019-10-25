@@ -9,6 +9,7 @@ setup(
     description='Easy-to-use text representations extraction library based on the Transformers library.',
     long_description=open('README.md', 'r').read(),
     long_description_content_type='text/markdown',
+    keywords=['NLP', 'natural language processing', 'deep learning', 'pytorch', 'transformer', 'BERT', 'XLM', 'XLNet', 'RoBERTa', 'DistilBERT', 'GPT', 'GPT-2', 'google', 'openai', 'CMU'],
     license='Apache',
     url='https://github.com/AliOsm/simplerepresentations',
     packages=find_packages(),
