@@ -8,14 +8,16 @@ from torch.utils.data import TensorDataset
 from simplerepresentations.input_features import InputFeatures
 
 
-def examples_to_dataset(examples, tokenizer, max_seq_length, process_count, chunksize):
+def examples_to_dataset(examples, tokenizer, max_seq_length, process_count, chunksize, verbose=1):
     """
     Converts a list of InputExample objects to a TensorDataset containing InputFeatures.
     """
 
     tokenizer = tokenizer
 
-    print('Converting to features started.')
+    if verbose == 1:
+        print('Converting to features started.')
+
     features = convert_examples_to_features(
         examples=examples,
         max_seq_length=max_seq_length,
@@ -32,7 +34,8 @@ def examples_to_dataset(examples, tokenizer, max_seq_length, process_count, chun
         # PAD on the left for XLNet
         pad_on_left=bool('bert' in ['xlnet']),
         pad_token=tokenizer.convert_tokens_to_ids([tokenizer.pad_token])[0],
-        pad_token_segment_id=4 if 'bert' in ['xlnet'] else 0
+        pad_token_segment_id=4 if 'bert' in ['xlnet'] else 0,
+        verbose=verbose
     )
 
     all_input_ids = torch.tensor([f.input_ids for f in features], dtype=torch.long)
@@ -60,7 +63,8 @@ def convert_examples_to_features(
         sequence_b_segment_id=1,
         cls_token_segment_id=1,
         pad_token_segment_id=0,
-        mask_padding_with_zero=True
+        mask_padding_with_zero=True,
+        verbose=1
     ):
     """
     Loads a data file into a list of `InputBatch`s
@@ -97,7 +101,8 @@ def convert_examples_to_features(
                     examples,
                     chunksize=chunksize
                 ),
-                total=len(examples)
+                total=len(examples),
+                disable=(verbose == 0)
             )
         )
 
