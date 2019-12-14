@@ -43,7 +43,8 @@ class RepresentationModel:
 			combination_method='sum',
 			use_cuda=True,
 			process_count=cpu_count() - 2 if cpu_count() > 2 else 1,
-			chunksize=500
+			chunksize=500,
+			verbose=1
 		):
 		model_type = model_type.lower()
 		model_name = model_name.lower()
@@ -61,6 +62,7 @@ class RepresentationModel:
 		self.use_cuda = use_cuda
 		self.process_count = process_count
 		self.chunksize = chunksize
+		self.verbose = verbose
 
 		_, model_class, tokenizer_class = self.MODEL_CLASSES[model_type]
 
@@ -87,7 +89,8 @@ class RepresentationModel:
 			tokenizer=self.tokenizer,
 			max_seq_length=self.max_seq_length,
 			process_count=self.process_count,
-			chunksize=self.chunksize
+			chunksize=self.chunksize,
+			verbose=self.verbose
 		)
 		sampler = SequentialSampler(dataset)
 		dataloader = DataLoader(dataset, sampler=sampler, batch_size=self.batch_size)
@@ -95,7 +98,7 @@ class RepresentationModel:
 		all_sentences_representations = list()
 		all_tokens_representations = list()
 
-		for batch in tqdm(dataloader):
+		for batch in tqdm(dataloader, disable=(self.verbose == 0)):
 			self.model.eval()
 			batch = tuple(b.to(self.device) for b in batch)
 
