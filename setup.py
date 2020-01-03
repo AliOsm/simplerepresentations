@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='simplerepresentations',
-    version='0.0.3',
+    version='0.0.4',
     author='Ali Fadel',
     author_email='aliosm1997@gmail.com',
     description='Easy-to-use text representations extraction library based on the Transformers library.',
