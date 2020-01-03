@@ -26,7 +26,7 @@ from simplerepresentations.utils import examples_to_dataset
 class RepresentationModel:
 	COMBINATION_METHODS = ['sum', 'cat']
 	MODELS_W_SENREP = ['bert', 'roberta', 'albert']
-	WODELS_WO_SENREP = ['xlm', 'xlnet', 'distilbert']
+	MODELS_WO_SENREP = ['xlm', 'xlnet', 'distilbert']
 	MODEL_CLASSES = {
 		'bert':       (BertConfig,       BertModel,       BertTokenizer),
 		'xlm':        (XLMConfig,        XLMModel,        XLMTokenizer),
