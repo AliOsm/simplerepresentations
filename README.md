@@ -24,7 +24,7 @@ First you need to install PyTorch. Please refer to [PyTorch installation page](h
 When PyTorch has been installed, Simple Representation can be installed using pip as follows:
 
 ```
-pip install simplerepresentation
+pip install simplerepresentations
 ```
 
 ### From source
