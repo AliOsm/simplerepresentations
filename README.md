@@ -15,7 +15,7 @@ This library is based on the [Transformers](https://github.com/huggingface/trans
 
 ## Installation
 
-This repository is tested on Python 3.6.8 and PyTorch 1.2.0
+This repository is tested on Python 3.8.13 and PyTorch 1.7.1
 
 ### With `pip`
 

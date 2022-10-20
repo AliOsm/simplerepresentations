@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='simplerepresentations',
-    version='0.0.4',
+    version='0.0.5',
     author='Ali Fadel',
     author_email='aliosm1997@gmail.com',
     description='Easy-to-use text representations extraction library based on the Transformers library.',
@@ -13,11 +13,11 @@ setup(
     license='Apache',
     url='https://github.com/AliOsm/simplerepresentations',
     packages=find_packages(),
-    python_requires='>=3.6',
+    python_requires='>=3.8',
     install_requires=[
         'numpy',
         'torch',
-        'transformers',
+        'transformers>=3.1.0',
         'tqdm'
     ],
     classifiers=[
