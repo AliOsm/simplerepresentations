@@ -110,7 +110,7 @@ class RepresentationModel:
 				inputs = self._get_inputs_dict(batch)
 
 				if self.model_type in self.MODELS_W_SENREP:
-					_, sentences_representations, tokens_representations = self.model(**inputs)
+					_, sentences_representations, tokens_representations = self.model(**inputs, return_dict=False)
 
 					sentences_representations = np.array([sentences_representation.cpu().numpy() for sentences_representation in sentences_representations])
 					all_sentences_representations.extend(sentences_representations)
